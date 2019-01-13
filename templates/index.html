@@ -9,7 +9,9 @@
     <link rel="stylesheet" href="{% static 'css/index.css' %}">
     <link rel="stylesheet" href="{% static 'css/wholesale.css' %}">
     <link rel="stylesheet" href="{% static 'iconfont/iconfont.css' %}">
+    <link rel="stylesheet" href="{% static 'css/swiper.min.css' %}">
 
+    <script src="{% static 'js/swiper.jquery.min.js' %}"></script>
     <script src="{% static 'js/jquery-3.2.1.js' %}"></script>
     <script src="{% static 'js/jquery.cookie.js' %}"></script>
     <script src="{% static 'js/index.js' %}"></script>
@@ -26,10 +28,10 @@
         <!-- 登录注册 -->
         <div class="user-entry">
             {% if user %}
-
-                <span>
-                    <img src="{% static 'upfile/3.jpg' %}" alt="" class="touxiang">
-                </span>
+{#客户的头像#}
+{#                <span>#}
+{#                    <img src="{% static 'upfile/3.jpg' %}" alt="" class="touxiang">#}
+{#                </span>#}
                 <span>
                     用户名：{{ user.username }}
                 </span>
@@ -916,22 +918,27 @@
 <div class="lunbo-area">
 
 
+    <div class="swiper-container">
+        <div class="swiper-wrapper">
+
+            {% for carouselmap in carouselmaps %}
+                <div class="swiper-slide">
+                    <img src="{{ carouselmap.imgs }}" alt="">
+                </div>
+            {% endfor %}
+
+        </div>
+        <!-- Add Pagination -->
+        <div class="swiper-pagination"></div>
+        <!-- Add Arrows -->
+        <div class="swiper-button-next"></div>
+        <div class="swiper-button-prev"></div>
+    </div>
 
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-    <!-- 左 -->
+{#    <!-- 左 -->#}
 {#    <div class="lunbo-lft"></div>#}
 {#    <div class="lunbo-rgtbg"></div>#}
 {#    <div class="public-main">#}
@@ -963,46 +970,49 @@
 {#                </li>#}
 {#            </ul>#}
 {#        </div>#}
-        <ul class="min-ul" id="list2">
-            <li class="active"><a href="#">把握时机</a></li>
-            <li><a href="#">满50减10</a></li>
-            <li><a href="#">360全景相机</a></li>
-            <li><a href="#">纸尿裤特价</a></li>
-            <li><a href="#">年货节</a></li>
-            <li><a href="#">Beats耳机</a></li>
-        </ul>
-        <!-- 右 -->
-        <div style="background-color: #FFF;" class="lunbo-rgt">
-            <div class="rgtbar">
-                <div class="greet">
-                    <h2 class="person"><img src="{% static 'images1/person.png' %}" alt="头像"></h2>
-                    <span class="greetingTxt">Hi,您好<br><br>欢迎来到米米乐商城</span>
-                </div>
-                <!-- 登录,注册 -->
-                <div class="loginreg">
-                    <a class="login" href="login.html" target="_blank">登录</a>
-                    <a class="reg2" href="register.html" target="_blank">注册</a>
-                </div>
-                <!-- 通知 -->
-                <div class="inform">
-                    <a href="#">2017春节发货通知</a><span>&nbsp;&nbsp;&nbsp;&nbsp;(2017-01-20)</span><br>
-                    <a href="#">你购物我赞助&nbsp;奖品已全部</a><span>&nbsp;&nbsp;&nbsp;&nbsp;(2017-01-20)</span>
-                </div>
-                <!-- 花费,机票,礼品卡 -->
-                <div class="gift">
-                    <ul>
-                        <li><a href="#"><i class="iconfont phonbill"></i><br>话费</a></li>
-                        <li><a href="#"><i class="iconfont airplane"></i><br>机票</a></li>
-                        <li><a href="#"><i class="iconfont giftcard"></i><br>礼品卡</a></li>
-                    </ul>
-                </div>
-                <!-- 图片 -->
-                <div class="giftimg">
-                    <a href="#"><img src="{% static 'images1/gift.jpg' %}" alt="魅族手机"></a>
-                </div>
-            </div>
-        </div>
-    </div>
+{##}
+{##}
+{#        <ul class="min-ul" id="list2">#}
+{#            <li class="active"><a href="#">把握时机</a></li>#}
+{#            <li><a href="#">满50减10</a></li>#}
+{#            <li><a href="#">360全景相机</a></li>#}
+{#            <li><a href="#">纸尿裤特价</a></li>#}
+{#            <li><a href="#">年货节</a></li>#}
+{#            <li><a href="#">Beats耳机</a></li>#}
+{#        </ul>#}
+{#    #}
+{#        <!-- 右 -->#}
+{#        <div style="background-color: #FFF;" class="lunbo-rgt">#}
+{#            <div class="rgtbar">#}
+{#                <div class="greet">#}
+{#                    <h2 class="person"><img src="{% static 'images1/person.png' %}" alt="头像"></h2>#}
+{#                    <span class="greetingTxt">Hi,您好<br><br>欢迎来到米米乐商城</span>#}
+{#                </div>#}
+{#                <!-- 登录,注册 -->#}
+{#                <div class="loginreg">#}
+{#                    <a class="login" href="login.html" target="_blank">登录</a>#}
+{#                    <a class="reg2" href="register.html" target="_blank">注册</a>#}
+{#                </div>#}
+{#                <!-- 通知 -->#}
+{#                <div class="inform">#}
+{#                    <a href="#">2017春节发货通知</a><span>&nbsp;&nbsp;&nbsp;&nbsp;(2017-01-20)</span><br>#}
+{#                    <a href="#">你购物我赞助&nbsp;奖品已全部</a><span>&nbsp;&nbsp;&nbsp;&nbsp;(2017-01-20)</span>#}
+{#                </div>#}
+{#                <!-- 花费,机票,礼品卡 -->#}
+{#                <div class="gift">#}
+{#                    <ul>#}
+{#                        <li><a href="#"><i class="iconfont phonbill"></i><br>话费</a></li>#}
+{#                        <li><a href="#"><i class="iconfont airplane"></i><br>机票</a></li>#}
+{#                        <li><a href="#"><i class="iconfont giftcard"></i><br>礼品卡</a></li>#}
+{#                    </ul>#}
+{#                </div>#}
+{#                <!-- 图片 -->#}
+{#                <div class="giftimg">#}
+{#                    <a href="#"><img src="{% static 'images1/gift.jpg' %}" alt="魅族手机"></a>#}
+{#                </div>#}
+{#            </div>#}
+{#        </div>#}
+{#    </div>#}
 </div>
 <!-- content -->
 <div class="cont">
@@ -2127,11 +2137,20 @@
 </div>
 
 
-myhome.js:10:9
 
-
-myhome.js:13:5
-
+    <script src="https://3.swiper.com.cn/dist/js/swiper.min.js"></script>
+    <script>
+        var swiper = new Swiper('.swiper-container', {
+            pagination: '.swiper-pagination',
+            nextButton: '.swiper-button-next',
+            prevButton: '.swiper-button-prev',
+            paginationClickable: true,
+            spaceBetween: 30,
+            centeredSlides: true,
+            autoplay: 2500,
+            autoplayDisableOnInteraction: false
+        });
+    </script>
 </body>
 
 

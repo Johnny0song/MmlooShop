@@ -198,7 +198,7 @@ a.shop:hover {
 .floor ul.cnt {
 	position: absolute;
 	text-align: center;
-	border-bottom: 1px solid #6C6C6C;*/
+	border-bottom: 1px solid #6C6C6C;
 }
 
 .floor ul li{
@@ -636,10 +636,6 @@ ul.keywords li a {
 
 
 
-
-
-
-
 .lunbo-area {
     height: 430px;
     position: relative;
@@ -847,6 +843,12 @@ i.giftcard {
     width: 228px;
     height: 136px;
 }
+
+
+
+
+
+
 
 /* content */
 .cont {

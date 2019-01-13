@@ -9,7 +9,7 @@ from django.shortcuts import render, redirect
 
 # Create your views here.
 from MmlooShop import settings
-from app.models import User
+from app.models import User, Carousel
 
 
 def index(request):
@@ -20,7 +20,10 @@ def index(request):
     else:
         user = None
 
-    return render(request,'index.html',context={'user':user})
+    carouselmaps = Carousel.objects.all()
+
+
+    return render(request,'index.html',context={'user':user,"carouselmaps":carouselmaps})
 
 def generate_token():
     token = str(time.time()) + str(random.random())
@@ -120,3 +123,6 @@ def savefile(request):
         return HttpResponse('文件上传成功')
     else:
         return HttpResponse('文件上传失败')
+
+
+
