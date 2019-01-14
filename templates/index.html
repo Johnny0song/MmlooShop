@@ -916,37 +916,37 @@
 </div>
 <!-- lunbo zone -->
 <div class="lunbo-area">
+    <!-- 左 -->
+    <div class="lunbo-lft"></div>
+    <div class="lunbo-rgtbg"></div>
+    <div class="public-main">
 
 
-    <div class="swiper-container">
-        <div class="swiper-wrapper">
 
-            {% for carouselmap in carouselmaps %}
-                <div class="swiper-slide">
-                    <img src="{{ carouselmap.imgs }}" alt="">
+
+        <!-- 中 -->
+        <div class="lunbo-img">
+
+            <div class="swiper-container">
+                <div class="swiper-wrapper">
+
+                    {% for carouselmap in carouselmaps %}
+                        <div class="swiper-slide">
+                            <img src="{{ carouselmap.imgs }}" alt="">
+                        </div>
+                    {% endfor %}
+
                 </div>
-            {% endfor %}
-
-        </div>
-        <!-- Add Pagination -->
-        <div class="swiper-pagination"></div>
-        <!-- Add Arrows -->
-        <div class="swiper-button-next"></div>
-        <div class="swiper-button-prev"></div>
-    </div>
-
-
-
-
-{#    <!-- 左 -->#}
-{#    <div class="lunbo-lft"></div>#}
-{#    <div class="lunbo-rgtbg"></div>#}
-{#    <div class="public-main">#}
-{#        <!-- 中 -->#}
-{#        <div class="lunbo-img">#}
+                <!-- Add Pagination -->
+                <div class="swiper-pagination"></div>
+                <!-- Add Arrows -->
+                <div class="swiper-button-next"></div>
+                <div class="swiper-button-prev"></div>
+            </div>
 {#            <i id="pre">上一页</i>#}
 {#            <i id="next">下一页</i>#}
 {#            <ul id="list" style="width: 5432px;">#}
+
 {#                <li>#}
 {#                    <a href="#"><img src="{% static 'images1/lunbo1.png' %}" alt=""></a>#}
 {#                </li>#}
@@ -969,51 +969,55 @@
 {#                    <a href="#"><img src="{% static 'images1/lunbo1.png' %}" alt=""></a>#}
 {#                </li>#}
 {#            </ul>#}
-{#        </div>#}
-{##}
-{##}
-{#        <ul class="min-ul" id="list2">#}
-{#            <li class="active"><a href="#">把握时机</a></li>#}
-{#            <li><a href="#">满50减10</a></li>#}
-{#            <li><a href="#">360全景相机</a></li>#}
-{#            <li><a href="#">纸尿裤特价</a></li>#}
-{#            <li><a href="#">年货节</a></li>#}
-{#            <li><a href="#">Beats耳机</a></li>#}
-{#        </ul>#}
-{#    #}
-{#        <!-- 右 -->#}
-{#        <div style="background-color: #FFF;" class="lunbo-rgt">#}
-{#            <div class="rgtbar">#}
-{#                <div class="greet">#}
-{#                    <h2 class="person"><img src="{% static 'images1/person.png' %}" alt="头像"></h2>#}
-{#                    <span class="greetingTxt">Hi,您好<br><br>欢迎来到米米乐商城</span>#}
-{#                </div>#}
-{#                <!-- 登录,注册 -->#}
-{#                <div class="loginreg">#}
-{#                    <a class="login" href="login.html" target="_blank">登录</a>#}
-{#                    <a class="reg2" href="register.html" target="_blank">注册</a>#}
-{#                </div>#}
-{#                <!-- 通知 -->#}
-{#                <div class="inform">#}
-{#                    <a href="#">2017春节发货通知</a><span>&nbsp;&nbsp;&nbsp;&nbsp;(2017-01-20)</span><br>#}
-{#                    <a href="#">你购物我赞助&nbsp;奖品已全部</a><span>&nbsp;&nbsp;&nbsp;&nbsp;(2017-01-20)</span>#}
-{#                </div>#}
-{#                <!-- 花费,机票,礼品卡 -->#}
-{#                <div class="gift">#}
-{#                    <ul>#}
-{#                        <li><a href="#"><i class="iconfont phonbill"></i><br>话费</a></li>#}
-{#                        <li><a href="#"><i class="iconfont airplane"></i><br>机票</a></li>#}
-{#                        <li><a href="#"><i class="iconfont giftcard"></i><br>礼品卡</a></li>#}
-{#                    </ul>#}
-{#                </div>#}
-{#                <!-- 图片 -->#}
-{#                <div class="giftimg">#}
-{#                    <a href="#"><img src="{% static 'images1/gift.jpg' %}" alt="魅族手机"></a>#}
-{#                </div>#}
-{#            </div>#}
-{#        </div>#}
-{#    </div>#}
+        </div>
+
+
+        <ul class="min-ul" id="list2">
+            <li class="active"><a href="#">把握时机</a></li>
+            <li><a href="#">满50减10</a></li>
+            <li><a href="#">360全景相机</a></li>
+            <li><a href="#">纸尿裤特价</a></li>
+            <li><a href="#">年货节</a></li>
+            <li><a href="#">Beats耳机</a></li>
+        </ul>
+
+        <!-- 右 -->
+        <div style="background-color: #FFF;" class="lunbo-rgt">
+            <div class="rgtbar">
+                <div class="greet">
+                    <h2 class="person"><img src="{% static 'images1/person.png' %}" alt="头像"></h2>
+                    <span class="greetingTxt">Hi,您好<br><br>欢迎来到米米乐商城</span>
+                </div>
+                <!-- 登录,注册 -->
+                <div class="loginreg">
+                    <a class="login" href="login.html" target="_blank">登录</a>
+                    <a class="reg2" href="register.html" target="_blank">注册</a>
+                </div>
+                <!-- 通知 -->
+                <div class="inform">
+                    <a href="#">2017春节发货通知</a><span>&nbsp;&nbsp;&nbsp;&nbsp;(2017-01-20)</span><br>
+                    <a href="#">你购物我赞助&nbsp;奖品已全部</a><span>&nbsp;&nbsp;&nbsp;&nbsp;(2017-01-20)</span>
+                </div>
+                <!-- 花费,机票,礼品卡 -->
+                <div class="gift">
+                    <ul>
+                        <li><a href="#"><i class="iconfont phonbill"></i><br>话费</a></li>
+                        <li><a href="#"><i class="iconfont airplane"></i><br>机票</a></li>
+                        <li><a href="#"><i class="iconfont giftcard"></i><br>礼品卡</a></li>
+                    </ul>
+                </div>
+                <!-- 图片 -->
+                <div class="giftimg">
+                    <a href="#"><img src="{% static 'images1/gift.jpg' %}" alt="魅族手机"></a>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
+
+
+
+
 <!-- content -->
 <div class="cont">
     <div class="public-main">
@@ -1035,6 +1039,15 @@
                 <a class="imgs" href="#"><img src="{% static 'images1/watch.jpg' %}" alt=""></a>
             </li>
         </ul>
+
+
+
+
+
+
+
+
+
         <!-- 特惠专区 -->
         <div class="salearea">
             <div class="bigsale-lftbar">
@@ -1091,6 +1104,34 @@
             <!-- 手机 -->
             <div class="sales-rgtbar">
                 <ul class="iphoneimgs goods" id="goods1">
+                    <li>
+                        <a href="#">
+                            <img src="{% static 'images1/iphone7pjin.jpg' %}">
+                            <p class="name">Apple 7 Iphone 7 金色</p>
+                            <p class="price">￥4599</p>
+                        </a>
+
+                    </li>
+                    <li>
+                        <a href="#">
+                            <img src="{% static 'images1/ipad.jpg' %}">
+                            <p>苹果 iPad mini 4 银色</p>
+                            <p>￥3588</p>
+
+                        </a>
+
+                    </li>
+                    <li>
+                        <a href="#">
+                            <img src="{% static 'images1/iphone7phei.jpg' %}">
+                            <p>苹果Apple iPhone 7Plus 黑色 128G</p>
+                            <p>￥6999</p>
+                        </a>
+
+                    </li>
+
+
+
                     <!--<li>
                              商品详情1
                         <img src="images1/iphone7pjin.jpg">
