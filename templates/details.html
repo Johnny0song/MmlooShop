@@ -198,16 +198,17 @@
         <div class="m-gds-m">
 
 
+
             <div class="u-gds-lft">
                 <!-- 小图区域 -->
-                <div class="u-gdsbox">
-                    <img src="{% static 'details-images/jin1.png' %}" alt="" class="myImgs">
-                    <div id="u-floatbox"></div>
-                </div>
+{#                <div class="u-gdsbox">#}
+                    <img src="{{ goods.imgs }}" alt="" class="myImgs">
+{#                    <img src="{% static 'details-images/jin1.png' %}" alt="" class="myImgs">#}
+{#                    <div id="u-floatbox"></div>#}
+{#                </div>#}
                 <!-- 显示大图区域 -->
                 <div id="showImg">
-
-
+                        <img src="{{ goods.imgs }}" alt="" class="myImgs">
 {#                    <img src="{% static 'details-images/jin1.png' %}" alt="" class="myImgs">#}
                 </div>
                 <!-- 显示大图区域end -->
@@ -223,6 +224,10 @@
                     <a href=""><img src="{% static 'details-images/zhangqi.png' %}" alt="">信用账期</a>
                 </div>
             </div>
+
+
+
+
             <div class="u-gds-m">
                 <div class="f-buy">
                     <label>零 售 价：</label><p class="price p-color"> ¥4599.00</p><br>

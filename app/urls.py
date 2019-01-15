@@ -8,11 +8,14 @@ urlpatterns = [
     url(r'^register/$',views.register,name='register'),
     url(r'^logout/$',views.logout,name='logout'),
     url(r'^login/$',views.login,name='login'),
-    url(r'^details/$',views.details,name='details'),
+    url(r'^details/(\d+)/$',views.details,name='details'),
     url(r'^cart/$',views.cart,name='cart'),
 
     url(r'^upfile/$',views.upfile,name='upfile'),
     url(r'^savefile/$',views.savefile,name='savefile'),
+
+#     ajax请求
+    url(r'^checkiphone/$',views.checkiphone,name='checkiphone')
 
 
 ]

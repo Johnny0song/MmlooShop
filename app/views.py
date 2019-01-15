@@ -3,18 +3,19 @@ import random
 import time
 
 import os
-from django.http import HttpResponse
+from django.http import HttpResponse, JsonResponse
 from django.shortcuts import render, redirect
 
 
 # Create your views here.
 from MmlooShop import settings
-from app.models import User, Carousel
+from app.models import User, Carousel, Goods
 
 
 def index(request):
     token = request.session.get('token')
     users = User.objects.filter(token=token)
+
     if users.count():
         user = users.first()
     else:
@@ -22,8 +23,16 @@ def index(request):
 
     carouselmaps = Carousel.objects.all()
 
+    # 商品详情
+    goods_lists = Goods.objects.all()
 
-    return render(request,'index.html',context={'user':user,"carouselmaps":carouselmaps})
+
+    data ={
+        'user': user,
+         "carouselmaps": carouselmaps,
+        'goods_lists':goods_lists
+    }
+    return render(request,'index.html',data)
 
 def generate_token():
     token = str(time.time()) + str(random.random())
@@ -35,6 +44,8 @@ def generate_password(password):
     sha1 = hashlib.sha1()
     sha1.update(str(password).encode('utf-8'))
     return sha1.hexdigest()
+
+
 
 def register(request):
     if request.method =='GET':
@@ -91,16 +102,17 @@ def login(request):
             user = None
             return redirect('mml:login')
 
-
-
-
-
-
-
     return render(request, 'login.html')
 
-def details(request):
-    return render(request, 'details.html')
+
+
+
+
+
+
+def details(request,goods_id):
+    goods = Goods.objects.get(pk=goods_id)
+    return render(request, 'details.html',context={'goods':goods })
 
 def cart(request):
     return render(request, 'cart.html')
@@ -125,4 +137,19 @@ def savefile(request):
         return HttpResponse('文件上传失败')
 
 
+def checkiphone(request):
+    phone = request.GET.get('phone')
+    users = User.objects.filter(phone=phone)
+    if users.exists():
+        return JsonResponse({'msg':"手机号已经被占用!",'status':0})
+    else:
+        return JsonResponse({'msg':'手机号可以使用','status':1})
 
+#
+# email = request.GET.get('email')
+#
+#     users = User.objects.filter(email=email)
+#     if users.exists():  # 占用
+#         return JsonResponse({'msg': '账号被占用！', 'status':0})
+#     else:   # 可用
+#         return JsonResponse({'msg': '账号可以使用!', 'status':1})

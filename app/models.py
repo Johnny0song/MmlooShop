@@ -4,8 +4,9 @@ from django.db import models
 class User(models.Model):
     username = models.CharField(max_length=100)
     password = models.CharField(max_length=300)
-    phone = models.CharField(max_length=50)
+    phone = models.CharField(max_length=50,unique=True)
     token = models.CharField(max_length=300)
+
 
     def __str__(self):
         return self.username
@@ -32,3 +33,9 @@ class Carousel(models.Model):
 #     class Meta:
 #
 
+class Goods(models.Model):
+    name = models.CharField(max_length=50)
+    imgs = models.CharField(max_length=300)
+    trackid = models.CharField(max_length=10)
+    class Meta:
+        db_table = 'mml_goods'

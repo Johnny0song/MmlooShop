@@ -1104,31 +1104,42 @@
             <!-- 手机 -->
             <div class="sales-rgtbar">
                 <ul class="iphoneimgs goods" id="goods1">
-                    <li>
-                        <a href="#">
-                            <img src="{% static 'images1/iphone7pjin.jpg' %}">
-                            <p class="name">Apple 7 Iphone 7 金色</p>
-                            <p class="price">￥4599</p>
-                        </a>
 
-                    </li>
-                    <li>
-                        <a href="#">
-                            <img src="{% static 'images1/ipad.jpg' %}">
-                            <p>苹果 iPad mini 4 银色</p>
-                            <p>￥3588</p>
+                    {% for goods in goods_lists %}
+                        <li>
+                            <a href="{% url 'mml:details' goods.id %}">
+                                <img src="{{ goods.imgs }}">
+                                <p class="name">Apple 7 Iphone 7 金色</p>
+                                <p class="price">￥4599</p>
+                            </a>
+                        </li>
 
-                        </a>
+                    {% endfor %}
+{#                    <li>#}
+{#                        <a href="{% url 'mml:details' %}">#}
+{#                            <img src="{% static 'images1/iphone7pjin.jpg' %}">#}
+{#                            <p class="name">Apple 7 Iphone 7 金色</p>#}
+{#                            <p class="price">￥4599</p>#}
+{#                        </a>#}
 
-                    </li>
-                    <li>
-                        <a href="#">
-                            <img src="{% static 'images1/iphone7phei.jpg' %}">
-                            <p>苹果Apple iPhone 7Plus 黑色 128G</p>
-                            <p>￥6999</p>
-                        </a>
-
-                    </li>
+{#                    </li>#}
+{#                    <li>#}
+{#                        <a href="#">#}
+{#                            <img src="{% static 'images1/ipad.jpg' %}">#}
+{#                            <p>苹果 iPad mini 4 银色</p>#}
+{#                            <p>￥3588</p>#}
+{##}
+{#                        </a>#}
+{##}
+{#                    </li>#}
+{#                    <li>#}
+{#                        <a href="#">#}
+{#                            <img src="{% static 'images1/iphone7phei.jpg' %}">#}
+{#                            <p>苹果Apple iPhone 7Plus 黑色 128G</p>#}
+{#                            <p>￥6999</p>#}
+{#                        </a>#}
+{##}
+{#                    </li>#}
 
 
 
