@@ -2,21 +2,23 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="df99a250-e31b-4ccd-998e-819f2be05553" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/app/migrations/0004_goods.py" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/app/migrations/0005_auto_20190115_1030.py" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/static/css/bootstrap.min.css" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/static/js/bootstrap.min.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/static/js/jquery.min.js" />
       <change beforePath="$PROJECT_DIR$/.idea/dataSources/5fd2b507-2683-494e-bf9b-9f51b95de0ac.xml" afterPath="$PROJECT_DIR$/.idea/dataSources/5fd2b507-2683-494e-bf9b-9f51b95de0ac.xml" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change beforePath="$PROJECT_DIR$/app/migrations/0001_initial.py" afterPath="$PROJECT_DIR$/app/migrations/0001_initial.py" />
+      <change beforePath="$PROJECT_DIR$/app/migrations/0002_carousel.py" afterPath="$PROJECT_DIR$/app/migrations/0002_cart.py" />
+      <change beforePath="$PROJECT_DIR$/app/migrations/0003_auto_20190113_0917.py" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/app/migrations/0004_goods.py" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/app/migrations/0005_auto_20190115_1030.py" afterPath="" />
       <change beforePath="$PROJECT_DIR$/app/models.py" afterPath="$PROJECT_DIR$/app/models.py" />
       <change beforePath="$PROJECT_DIR$/app/urls.py" afterPath="$PROJECT_DIR$/app/urls.py" />
       <change beforePath="$PROJECT_DIR$/app/views.py" afterPath="$PROJECT_DIR$/app/views.py" />
       <change beforePath="$PROJECT_DIR$/static/css/reg.css" afterPath="$PROJECT_DIR$/static/css/reg.css" />
-      <change beforePath="$PROJECT_DIR$/static/js/jquery-3.2.1.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/static/js/details.js" afterPath="$PROJECT_DIR$/static/js/details.js" />
+      <change beforePath="$PROJECT_DIR$/static/js/login.js" afterPath="$PROJECT_DIR$/static/js/login.js" />
       <change beforePath="$PROJECT_DIR$/static/js/register.js" afterPath="$PROJECT_DIR$/static/js/register.js" />
       <change beforePath="$PROJECT_DIR$/templates/details.html" afterPath="$PROJECT_DIR$/templates/details.html" />
       <change beforePath="$PROJECT_DIR$/templates/index.html" afterPath="$PROJECT_DIR$/templates/index.html" />
+      <change beforePath="$PROJECT_DIR$/templates/login.html" afterPath="$PROJECT_DIR$/templates/login.html" />
       <change beforePath="$PROJECT_DIR$/templates/register.html" afterPath="$PROJECT_DIR$/templates/register.html" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -63,28 +65,158 @@
     <option name="myCustomStartScript" value="import sys; print('Python %s on %s' % (sys.version, sys.platform))&#10;import django; print('Django %s' % django.get_version())&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;if 'setup' in dir(django): django.setup()&#10;import django_manage_shell; django_manage_shell.run(PROJECT_ROOT)" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="register.js" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/static/js/register.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="414">
-              <caret line="41" column="2" lean-forward="false" selection-start-line="41" selection-start-column="2" selection-end-line="41" selection-end-column="2" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="register.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/templates/register.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="288">
-              <caret line="100" column="6" lean-forward="false" selection-start-line="100" selection-start-column="6" selection-end-line="139" selection-end-column="15" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <splitter split-orientation="horizontal" split-proportion="0.5997314">
+      <split-first>
+        <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+          <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/templates/index.html">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="288">
+                  <caret line="1113" column="21" lean-forward="false" selection-start-line="1113" selection-start-column="21" selection-end-line="1113" selection-end-column="21" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="details.html" pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/templates/details.html">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="541">
+                  <caret line="338" column="20" lean-forward="true" selection-start-line="338" selection-start-column="22" selection-end-line="340" selection-end-column="23" />
+                  <folding>
+                    <element signature="n#div#2;n#div#1;n#div#3;n#body#0;n#html#0;n#!!top" expanded="false" />
+                    <element signature="n#div#0;n#div#2;n#div#1;n#div#3;n#body#0;n#html#0;n#!!top" expanded="false" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="urls.py" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/app/urls.py">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="342">
+                  <caret line="21" column="33" lean-forward="false" selection-start-line="21" selection-start-column="33" selection-end-line="21" selection-end-column="33" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="mml_goods" pinned="false" current-in-tab="false">
+            <entry file="das://table:/d4020c83/5fd2b507-2683-494e-bf9b-9f51b95de0ac/MmlooShopdb.mml_goods">
+              <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+                <state>
+                  <filtering enabled="true" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="login.html" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/templates/login.html">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="900">
+                  <caret line="50" column="0" lean-forward="false" selection-start-line="50" selection-start-column="0" selection-end-line="50" selection-end-column="0" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+        </leaf>
+      </split-first>
+      <split-second>
+        <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+          <file leaf-file-name="register.html" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/templates/register.html">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="304">
+                  <caret line="67" column="0" lean-forward="true" selection-start-line="67" selection-start-column="0" selection-end-line="67" selection-end-column="0" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="views.py" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/app/views.py">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="116">
+                  <caret line="203" column="16" lean-forward="true" selection-start-line="203" selection-start-column="16" selection-end-line="203" selection-end-column="16" />
+                  <folding>
+                    <element signature="e#0#14#0" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="mml_cart" pinned="false" current-in-tab="true">
+            <entry file="das://table:/d4020c83/5fd2b507-2683-494e-bf9b-9f51b95de0ac/MmlooShopdb.mml_cart">
+              <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+                <state>
+                  <filtering enabled="true" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="details.js" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/static/js/details.js">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="90">
+                  <caret line="5" column="0" lean-forward="false" selection-start-line="4" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="register.js" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/static/js/register.js">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="396">
+                  <caret line="61" column="6" lean-forward="true" selection-start-line="61" selection-start-column="6" selection-end-line="61" selection-end-column="6" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="reg.css" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/static/css/reg.css">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="18">
+                  <caret line="70" column="0" lean-forward="false" selection-start-line="70" selection-start-column="0" selection-end-line="70" selection-end-column="0" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="login.js" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/static/js/login.js">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="18">
+                  <caret line="16" column="26" lean-forward="false" selection-start-line="16" selection-start-column="26" selection-end-line="16" selection-end-column="26" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="models.py" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/app/models.py">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="346">
+                  <caret line="55" column="29" lean-forward="true" selection-start-line="55" selection-start-column="29" selection-end-line="55" selection-end-column="29" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="mml_user" pinned="false" current-in-tab="false">
+            <entry file="das://table:/d4020c83/5fd2b507-2683-494e-bf9b-9f51b95de0ac/MmlooShopdb.mml_user">
+              <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+                <state>
+                  <filtering enabled="true" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+        </leaf>
+      </split-second>
+    </splitter>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -108,20 +240,22 @@
         <option value="$PROJECT_DIR$/MmlooShop/urls.py" />
         <option value="$PROJECT_DIR$/static/js/myhome.js" />
         <option value="$PROJECT_DIR$/templates/cart.html" />
-        <option value="$PROJECT_DIR$/templates/login.html" />
         <option value="$PROJECT_DIR$/app/admin.py" />
         <option value="$PROJECT_DIR$/templates/upfile.html" />
         <option value="$PROJECT_DIR$/MmlooShop/settings.py" />
         <option value="$PROJECT_DIR$/static/css/index.css" />
         <option value="$PROJECT_DIR$/static/js/index.js" />
+        <option value="$PROJECT_DIR$/templates/login.html" />
+        <option value="$PROJECT_DIR$/static/js/login.js" />
+        <option value="$PROJECT_DIR$/static/css/reg.css" />
         <option value="$PROJECT_DIR$/templates/index.html" />
-        <option value="$PROJECT_DIR$/templates/details.html" />
+        <option value="$PROJECT_DIR$/static/js/register.js" />
+        <option value="$PROJECT_DIR$/templates/register.html" />
+        <option value="$PROJECT_DIR$/static/js/details.js" />
         <option value="$PROJECT_DIR$/app/models.py" />
         <option value="$PROJECT_DIR$/app/urls.py" />
         <option value="$PROJECT_DIR$/app/views.py" />
-        <option value="$PROJECT_DIR$/static/css/reg.css" />
-        <option value="$PROJECT_DIR$/static/js/register.js" />
-        <option value="$PROJECT_DIR$/templates/register.html" />
+        <option value="$PROJECT_DIR$/templates/details.html" />
       </list>
     </option>
   </component>
@@ -169,6 +303,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
@@ -219,12 +354,11 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
-    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
+    <property name="settings.editor.selected.configurable" value="preferences.sourceCode" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="com.intellij.database.dataSource.DataSourceTemplate" value="MySQL" />
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
@@ -324,26 +458,27 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="65" y="-4" width="1851" height="903" extended-state="6" />
+    <frame x="65" y="-4" width="1531" height="841" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32956153" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32918397" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32818532" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22136422" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20342731" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32956153" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24055944" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="manage.py@MmlooShop" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.27155727" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.1580984" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Docker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.13985628" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.1605104" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="SciView" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32974428" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.12658927" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="manage.py@MmlooShop" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.27155727" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32862645" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -369,14 +504,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/templates/details/details.html" />
-    <entry file="file://$PROJECT_DIR$/static/base/css/base.css" />
-    <entry file="file://$PROJECT_DIR$/static/base/css/reset.css" />
-    <entry file="file://$PROJECT_DIR$/static/base/iconfont/iconfont.svg" />
-    <entry file="file://$PROJECT_DIR$/static/base/js/base.js" />
-    <entry file="file://$PROJECT_DIR$/static/base/iconfont/iconfont.css" />
-    <entry file="file://$PROJECT_DIR$/static/base/js/jquery.cookie.js" />
-    <entry file="file://$PROJECT_DIR$/templates/base/base.html" />
     <entry file="file://$PROJECT_DIR$/static/details/js/details.js" />
     <entry file="file://$PROJECT_DIR$/static/home/js/home.js" />
     <entry file="file://$PROJECT_DIR$/static/register/js/register.js" />
@@ -409,25 +536,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/MmlooShop/urls.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="342">
-          <caret line="20" column="11" lean-forward="false" selection-start-line="20" selection-start-column="11" selection-end-line="20" selection-end-column="11" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$USER_HOME$/.virtualenvs/python1811/lib/python3.5/hashlib.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="72">
           <caret line="23" column="11" lean-forward="false" selection-start-line="23" selection-start-column="11" selection-end-line="23" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/login.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="396">
-          <caret line="35" column="0" lean-forward="false" selection-start-line="35" selection-start-column="0" selection-end-line="35" selection-end-column="0" />
         </state>
       </provider>
     </entry>
@@ -483,27 +595,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="das://table:/d4020c83/5fd2b507-2683-494e-bf9b-9f51b95de0ac/MmlooShopdb.django_migrations">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/details.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="36">
-          <caret line="2" column="0" lean-forward="false" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://table:/d4020c83/5fd2b507-2683-494e-bf9b-9f51b95de0ac/MmlooShopdb.mml_goods">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/static/css/bootstrap.min.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -525,13 +616,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2070">
-          <caret line="1107" column="50" lean-forward="false" selection-start-line="1107" selection-start-column="50" selection-end-line="1107" selection-end-column="50" />
-        </state>
-      </provider>
-    </entry>
     <entry file="das://table:/d4020c83/5fd2b507-2683-494e-bf9b-9f51b95de0ac/MmlooShopdb.auth_user">
       <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
         <state>
@@ -539,52 +623,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/static/css/reg.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="18">
-          <caret line="239" column="1" lean-forward="false" selection-start-line="239" selection-start-column="1" selection-end-line="239" selection-end-column="1" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://table:/d4020c83/5fd2b507-2683-494e-bf9b-9f51b95de0ac/MmlooShopdb.app_user">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2338">
-          <caret line="146" column="0" lean-forward="false" selection-start-line="146" selection-start-column="0" selection-end-line="146" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#14#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/urls.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="17" column="61" lean-forward="false" selection-start-line="17" selection-start-column="61" selection-end-line="17" selection-end-column="61" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/models.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="282">
-          <caret line="32" column="17" lean-forward="false" selection-start-line="32" selection-start-column="17" selection-end-line="32" selection-end-column="17" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/static/js/index.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="336">
           <caret line="455" column="0" lean-forward="false" selection-start-line="455" selection-start-column="0" selection-end-line="455" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -595,19 +637,167 @@
         </state>
       </provider>
     </entry>
+    <entry file="das://table:/d4020c83/5fd2b507-2683-494e-bf9b-9f51b95de0ac/MmlooShopdb.app_user">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://src:table:/d4020c83/5fd2b507-2683-494e-bf9b-9f51b95de0ac/MmlooShopdb.mml_user">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="18">
+          <caret line="1" column="13" lean-forward="false" selection-start-line="1" selection-start-column="13" selection-end-line="1" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/login.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="900">
+          <caret line="50" column="0" lean-forward="false" selection-start-line="50" selection-start-column="0" selection-end-line="50" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://table:/d4020c83/5fd2b507-2683-494e-bf9b-9f51b95de0ac/MmlooShopdb.mml_goods">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://table:/d4020c83/5fd2b507-2683-494e-bf9b-9f51b95de0ac/MmlooShopdb.django_migrations">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://table:/d4020c83/5fd2b507-2683-494e-bf9b-9f51b95de0ac/MmlooShopdb.mml_goods">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://table:/d4020c83/5fd2b507-2683-494e-bf9b-9f51b95de0ac/MmlooShopdb.mml_goods">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://table:/d4020c83/5fd2b507-2683-494e-bf9b-9f51b95de0ac/MmlooShopdb.mml_user">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/templates/register.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="288">
-          <caret line="100" column="6" lean-forward="false" selection-start-line="100" selection-start-column="6" selection-end-line="139" selection-end-column="15" />
+        <state relative-caret-position="304">
+          <caret line="67" column="0" lean-forward="true" selection-start-line="67" selection-start-column="0" selection-end-line="67" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://table:/d4020c83/5fd2b507-2683-494e-bf9b-9f51b95de0ac/MmlooShopdb.mml_goods">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/MmlooShop/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="342">
+          <caret line="20" column="49" lean-forward="true" selection-start-line="20" selection-start-column="49" selection-end-line="20" selection-end-column="49" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/js/login.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="18">
+          <caret line="16" column="26" lean-forward="false" selection-start-line="16" selection-start-column="26" selection-end-line="16" selection-end-column="26" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/css/reg.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="18">
+          <caret line="70" column="0" lean-forward="false" selection-start-line="70" selection-start-column="0" selection-end-line="70" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/static/js/register.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="414">
-          <caret line="41" column="2" lean-forward="false" selection-start-line="41" selection-start-column="2" selection-end-line="41" selection-end-column="2" />
+        <state relative-caret-position="396">
+          <caret line="61" column="6" lean-forward="true" selection-start-line="61" selection-start-column="6" selection-end-line="61" selection-end-column="6" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/js/details.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="5" column="0" lean-forward="false" selection-start-line="4" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="288">
+          <caret line="1113" column="21" lean-forward="false" selection-start-line="1113" selection-start-column="21" selection-end-line="1113" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="346">
+          <caret line="55" column="29" lean-forward="true" selection-start-line="55" selection-start-column="29" selection-end-line="55" selection-end-column="29" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="342">
+          <caret line="21" column="33" lean-forward="false" selection-start-line="21" selection-start-column="33" selection-end-line="21" selection-end-column="33" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="116">
+          <caret line="203" column="16" lean-forward="true" selection-start-line="203" selection-start-column="16" selection-end-line="203" selection-end-column="16" />
+          <folding>
+            <element signature="e#0#14#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/details.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="541">
+          <caret line="338" column="20" lean-forward="true" selection-start-line="338" selection-start-column="22" selection-end-line="340" selection-end-column="23" />
+          <folding>
+            <element signature="n#div#2;n#div#1;n#div#3;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#div#0;n#div#2;n#div#1;n#div#3;n#body#0;n#html#0;n#!!top" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://table:/d4020c83/5fd2b507-2683-494e-bf9b-9f51b95de0ac/MmlooShopdb.mml_cart">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
         </state>
       </provider>
     </entry>

@@ -6,10 +6,16 @@ class User(models.Model):
     password = models.CharField(max_length=300)
     phone = models.CharField(max_length=50,unique=True)
     token = models.CharField(max_length=300)
-
+    class Meta:
+        db_table = 'mml_user'
 
     def __str__(self):
         return self.username
+
+
+
+
+
 
 class Carousel(models.Model):
     name = models.CharField(max_length=50)
@@ -36,6 +42,16 @@ class Carousel(models.Model):
 class Goods(models.Model):
     name = models.CharField(max_length=50)
     imgs = models.CharField(max_length=300)
+    price = models.CharField(max_length=50)
+    productnumber = models.CharField(max_length=50)
     trackid = models.CharField(max_length=10)
     class Meta:
         db_table = 'mml_goods'
+
+class Cart(models.Model):
+    user = models.ForeignKey(User)
+    goods = models.ForeignKey(Goods)
+    cartnum = models.CharField(max_length=50)
+    class Meta:
+        db_table = 'mml_cart'
+

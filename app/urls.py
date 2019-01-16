@@ -15,7 +15,11 @@ urlpatterns = [
     url(r'^savefile/$',views.savefile,name='savefile'),
 
 #     ajax请求
-    url(r'^checkiphone/$',views.checkiphone,name='checkiphone')
+    url(r'^checkiphone/$',views.checkiphone,name='checkiphone'),
+
+    url(r'^addgoods/$',views.addgoods,name='addgoods'),
+
+    url(r'^mtpgoods/$',views.mtpgoods,name='mtpgoods')
 
 
 ]

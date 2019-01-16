@@ -1,4 +1,6 @@
 $(function () {
+
+
 	//添加商品
 	addGds();
 	function addGds() {
@@ -24,11 +26,11 @@ $(function () {
         	 		obj=arr[i]
         	 	  	if(obj.id == id) {
             	 	  	var arr2 = $.cookie("cart") ? JSON.parse($.cookie("cart")) : [];
-                        
+
                         //是否有相同商品
                         var isExist = false;  //默认没有商品
                         for(var j=0; j<arr2.length; j++) {
-                        	
+
                             if(arr2[j].id == obj.id) {
                                 arr2[j].num++; //创建一个数量属性
                                 isExist = true;
@@ -41,13 +43,13 @@ $(function () {
                             //加入属性
                             arr2.push(obj);
                         }
-              			//设置cookie 
+              			//设置cookie
                         $.cookie("cart", JSON.stringify(arr2), {expires:30, path:"/"});
 						location.href = "cart.html";
        				}
                	}
             });
-            
+
         });
         //加载页面
         function loadUl(obj) {
@@ -68,10 +70,10 @@ $(function () {
             }
             return "";
         }
-		
+
 	}
-	
-	
+
+
 	//放大镜
 	magnify();
 	function magnify() {
@@ -82,7 +84,7 @@ $(function () {
 	    var bigImg = $("#showImg img");
 	    var ali = $("#u-mingds li"); //小图
 	    var minImg = $("#u-mingds li img");
-	    
+
 	    imgbox.mousemove(function(e) {
 	        //放大倍数
 	        floatbox.width( smallImg.width() * bigArea.width() / bigImg.width() );
@@ -120,22 +122,22 @@ $(function () {
 	    minImg.click(function() {
 	        smallImg.attr("src", $(this).attr("src"));
 	        bigImg.attr("src", $(this).attr("src"));
-	
+
 	    });
 	}
-	
-	
+
+
 	//右侧工具栏
     rightTools();
     function rightTools() {
     	var ali = $(".u-bar-t li");
 	    var aA = $(".u-bar-t li a");
 	    var aSpan = $(".u-bar-t li span");
-	
+
 	    var kefu = $(".kefu");
 	    var erweima = $(".erweima");
 	    var toTop = $(".toTop");
-	
+
 	    //移动
 	    //客服
 	    ali.eq(0).stop(true).mouseenter(function() {
@@ -148,7 +150,7 @@ $(function () {
 	        aA.eq(0).css({"background": ""});
 	        kefu.animate({"right": -82}, 300);
 	    });
-	
+
 	    //二维码
 	    ali.eq(3).stop(true).mouseenter(function() {
 	        erweima.animate({"right": 40, "opacity": 0.5}, 300);
@@ -160,7 +162,7 @@ $(function () {
 	        aA.eq(3).css({"background": ""});
 	        erweima.animate({"right": -154}, 300);
 	    });
-	
+
 	    //回到顶部
 	    ali.eq(4).stop(true).mouseenter(function() {
 	        toTop.animate({"right": 40, "opacity": 0.5}, 300);
@@ -172,20 +174,20 @@ $(function () {
 	        aA.eq(4).css({"background": ""});
 	        toTop.animate({"right": -82}, 300);
 	    });
-	    
+
 	    $(".toTop").click(function() {
 	        $("html,body").stop(true).animate({"scrollTop": 0}, 1000);
 	    });
 
     }
-	
-	
-	
-	
+
+
+
+
 	//购物车飞入效果
 	gdsFly();
 	function gdsFly() {
-		
+
 		
 		
 		

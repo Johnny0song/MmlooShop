@@ -1,5 +1,5 @@
 $(function () {
-
+    console.log('hello')
     // 设置用户名
     $('#username').blur(function () {
         if ($(this).val().length >= 3 && $(this).val().length <= 10) {
@@ -39,10 +39,32 @@ $(function () {
 
     })
 
+
+    $('.u-btn-reg').click(function () {
+        var s = true;
+        $('.tip').each(function () {
+            var val1 = $(this).html();
+            console.log(val1);
+            if( val1=='ok'){
+               console.log("ok")
+            }else {
+                $('.tips3').html('请重新输入');
+                s = false;
+            }
+
+        })
+        if (s){
+            $('.u-btn-reg').submit()
+        }else {
+            $('.tips3').html('请重新输入2')
+        }
+
+    })
+
+
+
+
 })
-
-
-
 
 
 

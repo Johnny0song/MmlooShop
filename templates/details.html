@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="{% static 'css/details.css' %}">
     <link rel="stylesheet" href="{% static 'iconfont/iconfont.css' %}">
     
-    <script src="{% static 'js/jquery-3.2.1.js' %}"></script>
+    <script src="{% static 'js/jquery.min.js' %}"></script>
     <script src="{% static 'js/jquery.cookie.js' %}"></script>
     <script src="{% static 'js/details.js' %}"></script>
 
@@ -191,7 +191,9 @@
                 </div>
             </div>
             <div class="gds-btm">
-                <p class="name">苹果（APPLE）iPhone 6s 32G 公开版 玫瑰金</p>
+
+{#                <p class="name">苹果（APPLE）iPhone 6s 32G 公开版 玫瑰金</p>#}
+                <p class="name">{{ goods.name }}</p>
                 <span>至大之作，至薄之作，不仅大，更加大放异彩，大有动力，大有能效，改变摄像，有颠覆摄像，全凭指尖~</span>
             </div>
         </div>
@@ -208,7 +210,7 @@
 {#                </div>#}
                 <!-- 显示大图区域 -->
                 <div id="showImg">
-                        <img src="{{ goods.imgs }}" alt="" class="myImgs">
+                        <img src="{{ goods.imgs }}" alt="" class="myImgs" >
 {#                    <img src="{% static 'details-images/jin1.png' %}" alt="" class="myImgs">#}
                 </div>
                 <!-- 显示大图区域end -->
@@ -230,7 +232,7 @@
 
             <div class="u-gds-m">
                 <div class="f-buy">
-                    <label>零 售 价：</label><p class="price p-color"> ¥4599.00</p><br>
+                    <label>零 售 价：</label><p class="price p-color"> ¥{{ goods.price }}</p><br>
                     <label>批 发 价：</label><p><span>¥4299.00</span> 一个也批发，单单返钱花</p><br>
                     <label>商品评价：</label><p><i class="star"></i>(60条评论)</p><br>
                     <label>至全国：  </label><p>运费：	10.00元 ，满49元包邮 由 <em>官方店铺</em> 发货</p>
@@ -238,9 +240,9 @@
                 <div>
                     <div class="f-add-1">
                         <div>
-                            <label>购买数量：</label><span class="num">1</span>
-                            <input class="add" type="button" value="+">
-                            <input class="mtp" type="button" value="-"><br>
+                            <label>购买数量：</label><span class="num">{{ cart.cartnum }}</span>
+                            <input class="add" type="button" value="+" goodsid="{{ goods.id }}">
+                            <input class="mtp" type="button" value="-" goodsid="{{ goods.id }}"><br>
                         </div>
                         <div class="f-add-2">
                             <input class="buygds" type="button" value="立即购买">
@@ -297,6 +299,62 @@
     </div>
 
 
+    <script>
+        $(function () {
 
+            $('.add').click(function () {
+                console.log('ok')
+                var goodsid = $(this).attr('goodsid')
+                console.log(goodsid)
+
+                data={
+                   'goodsid':goodsid,
+                }
+                {{ cart.cartnum }}
+                $.get('/addgoods/',data,function (response) {
+                    console.log(response)
+                    $('.num').html(response.cartnum)
+
+
+                    if (response.status ==0){
+                        window.open('/login/',target='_self')
+
+                    }
+
+                })
+
+            })
+
+            $('.mtp').click(function () {
+                console.log('减操作')
+                var goodsid=$(this).attr('goodsid')
+
+                data={
+                    'goodsid':goodsid
+                }
+                $.get('/mtpgoods/',data,function (response) {
+                    console.log(response)
+
+                    $('.num').html(response.cartnum)
+                    {#if (response.cartnum >0){#}
+                    {#    $('.num').html(response.cartnum)#}
+                    {#}#}
+
+
+                    if (response.status ==0){
+                        window.open('/login/',target='_self')
+
+                    }
+                })
+
+            })
+
+
+
+
+        })
+
+
+    </script>
 </body>
 </html>

@@ -1101,7 +1101,9 @@
                     </ul>
                 </div>
             </div>
-            <!-- 手机 -->
+
+
+{#            <!-- 手机 -->#}
             <div class="sales-rgtbar">
                 <ul class="iphoneimgs goods" id="goods1">
 
@@ -1109,10 +1111,13 @@
                         <li>
                             <a href="{% url 'mml:details' goods.id %}">
                                 <img src="{{ goods.imgs }}">
-                                <p class="name">Apple 7 Iphone 7 金色</p>
-                                <p class="price">￥4599</p>
+                                <p class="name">{{ goods.name }}</p>
+                                <p class="price">￥{{ goods.price }}</p>
                             </a>
                         </li>
+
+
+
 
                     {% endfor %}
 {#                    <li>#}
