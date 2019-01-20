@@ -8,7 +8,8 @@
     <link rel="stylesheet" href="{% static 'css/details.css' %}">
     <link rel="stylesheet" href="{% static 'iconfont/iconfont.css' %}">
     
-    <script src="{% static 'js/jquery.min.js' %}"></script>
+{#    <script src="{% static 'js/jquery.min.js' %}"></script>#}
+    <script src="{% static 'js/jquery-3.2.1.js' %}"></script>
     <script src="{% static 'js/jquery.cookie.js' %}"></script>
     <script src="{% static 'js/details.js' %}"></script>
 
@@ -21,8 +22,28 @@
         <div class="g-t-layout">
             <div class="m-top">
                 <div class="m-t-lft">
-                    <a href="login.html">登录</a>
-                    <a href="register.html">注册</a>
+{#                    <a href="login.html">登录</a>#}
+{#                    <a href="register.html">注册</a>#}
+                    {% if user %}
+                <span>
+                    用户名：{{ user.username }}
+                </span>
+
+                <span>
+                    <a href="{% url 'mml:logout' %}" target="_blank">注销</a>
+                </span>
+
+            {% else %}
+                <span class="login">
+                    <a href="{% url 'mml:login' %}" target="_blank">登录</a>
+                </span>
+            <span class="reg">
+                    <a href="{% url 'mml:register' %}" target="_blank">注册</a>
+                </span>
+            {% endif %}
+
+
+
                 </div>
                 <div class="m-t-rgt">
                     <ul>
@@ -204,13 +225,13 @@
             <div class="u-gds-lft">
                 <!-- 小图区域 -->
 {#                <div class="u-gdsbox">#}
-                    <img src="{{ goods.imgs }}" alt="" class="myImgs">
+                    <img src="{% static goods.imgs %}" alt="" class="myImgs">
 {#                    <img src="{% static 'details-images/jin1.png' %}" alt="" class="myImgs">#}
 {#                    <div id="u-floatbox"></div>#}
 {#                </div>#}
                 <!-- 显示大图区域 -->
                 <div id="showImg">
-                        <img src="{{ goods.imgs }}" alt="" class="myImgs" >
+                        <img src="{% static goods.imgs %}" alt="" class="myImgs" >
 {#                    <img src="{% static 'details-images/jin1.png' %}" alt="" class="myImgs">#}
                 </div>
                 <!-- 显示大图区域end -->
@@ -240,13 +261,19 @@
                 <div>
                     <div class="f-add-1">
                         <div>
-                            <label>购买数量：</label><span class="num">{{ cart.cartnum }}</span>
+                            <label>购买数量：</label><span class="num">1</span>
                             <input class="add" type="button" value="+" goodsid="{{ goods.id }}">
                             <input class="mtp" type="button" value="-" goodsid="{{ goods.id }}"><br>
                         </div>
                         <div class="f-add-2">
-                            <input class="buygds" type="button" value="立即购买">
-                            <input class="addgds" type="button" value="添加购物车"><br>
+                            <a href="{% url 'mml:cart' %}"  >
+                                <input class="buygds" type="button" value="立即购买">
+                            </a>
+                            <a href="{% url 'mml:cart' %}"  >
+                                <input class="addgds" type="button" value="添加购物车">
+                            </a> <br>
+{#                            <input class="buygds" type="button" value="立即购买">#}
+{#                            <input class="addgds" type="button" value="添加购物车"><br>#}
                         </div>
                         <div class="f-share">
                             <a href="#"><img src="{% static 'details-images/share.png' %}" alt="">分享<span>0</span></a>
@@ -336,9 +363,9 @@
                     console.log(response)
 
                     $('.num').html(response.cartnum)
-                    {#if (response.cartnum >0){#}
-                    {#    $('.num').html(response.cartnum)#}
-                    {#}#}
+                    if (response.cartnum >0){
+                        $('.num').html(response.cartnum)
+                    }
 
 
                     if (response.status ==0){

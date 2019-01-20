@@ -641,6 +641,22 @@ label {
 }
 
 
+.cartimg{
+    width: 100px;
+    height: 100px;
+}
+
+.cartdetails span{
+    font-size: 20px;
+    padding: 30px;
+}
+.cartdetails .mtp , .add ,.del{
+    font-size: 20px;
+    padding: 3px;
+}
+.del{
+    margin-left: 20px;
+}
 
 
 

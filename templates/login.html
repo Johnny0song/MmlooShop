@@ -40,14 +40,17 @@
 
 
 
-                <div class="loginarea">
+                <div class="loginarea" >
                     <form action="{% url 'mml:login' %}" method="post">
                         {% csrf_token %}
 {#                        <p>用户名：<input type="text" name="username" class="username1"></p>#}
-                        <p>手机号：<input type="text" name="phone" class="phone" class="phone"></p>
-                        <span class="tips0"></span>
-                        <p>密码： <input type="password" name="password" class="password"></p>
+                        <p><input type="text" name="phone" class="phone" class="phone" placeholder="手机号">
+                            <span class="tips0"></span>
+                        </p>
+
+                        <p> <input type="password" name="password" class="password" placeholder="密码">
                         <span class="tips1"></span>
+                        </p>
 
                         <input type="submit" value="登录" class="submit" >
                     </form>

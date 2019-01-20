@@ -5,11 +5,12 @@ import time
 import os
 from django.http import HttpResponse, JsonResponse
 from django.shortcuts import render, redirect
-
-
 # Create your views here.
+from django.views.decorators.csrf import csrf_exempt
+
 from MmlooShop import settings
-from app.models import User, Carousel, Goods, Cart
+from app.alipay import alipay
+from app.models import User, Carousel, Goods, Cart, Order, OrderGoods
 
 
 def index(request):
@@ -107,24 +108,46 @@ def login(request):
     return render(request, 'login.html')
 
 
-
-
-
-
-
 def details(request,goods_id):
     goods = Goods.objects.get(pk=goods_id)
-
     # 获取用户的购物车信息
     token = request.session.get('token')
+
+    print(token)
+
     if token:
         user = User.objects.get(token=token)
-        cart = Cart.objects.get(user = user)
+        carts = Cart.objects.filter(user = user).filter(goods=goods)
+        cart = carts.first()
 
-        return render(request, 'details.html',context={'goods':goods,'cart':cart})
+        data ={
+            'goods': goods,
+            "cart": cart,
+            'user': user,
+        }
+
+        return render(request, 'details.html',data)
+    else:
+        return render(request, 'details.html', context={'goods': goods,})
+
 
 def cart(request):
-    return render(request, 'cart.html')
+    token = request.session.get('token')
+    print(token)
+    if token:
+        user = User.objects.get(token=token)
+        carts = Cart.objects.filter(user=user)
+        sum =0
+        for cart in carts:
+            if cart.goods.isselect == 'true':
+                sum += int(int(cart.goods.price)*int(cart.cartnum))
+                return render(request, 'cart.html',context={'carts':carts,'sum':sum})
+    else:
+        return redirect('mml:login')
+
+
+
+
 
 
 def upfile(request):
@@ -215,3 +238,194 @@ def mtpgoods(request):
 
     else:
         return JsonResponse({'msg': '请登录', 'status': 0})
+
+
+
+# 添加购物车
+# def addcart(request):
+#     # 根据cookie判断用户是否登录
+#     token = request.session.get('token')
+#     user =User.objects.get(token=token)
+#
+#     return render(request,'addcart.html')
+
+
+
+#
+#
+def cartadd(request):
+    index = request.GET.get('index')
+
+    return JsonResponse({'msg': index, 'status': 0})
+
+
+def cartmtp(request):
+    token = request.session.get('token')
+    user = User.objects.get(token=token)
+    goodsid = request.GET.get('goodsid')
+    goods = Goods.objects.get(pk=goodsid)
+    carts = Cart.objects.filter(user=user).filter(goods=goods)
+    if carts.exists():  # 存在就改变数量
+        cart = carts.first()
+        cart.cartnum = str(int(cart.cartnum) - 1)
+        cart.save()
+        return JsonResponse({'msg': '{}-删除成功'.format(goods.name), 'status': 1, 'cartnum': cart.cartnum})
+
+
+    # return JsonResponse({'msg': goodsid, 'status': 0})
+
+
+def amount(request):
+    token = request.session.get('token')
+    user = User.objects.get(token=token)
+    # carts = Cart.objects.filter(user=user)
+    goodsid = request.GET.get('goodsid')
+    goods = Goods.objects.get(pk=goodsid)
+
+    goodsSelect = request.GET.get('goodsSelect')
+
+
+
+    goods.isselect = goodsSelect
+
+    goods.save()
+    # print(goods.isselect,goodsid)
+
+    carts = Cart.objects.filter(user=user)
+    sum = 0
+    if carts.count()>0:
+        for cart in carts:
+            print(cart.goods.isselect,cart.goods.id,type(cart.goods.isselect))
+            if cart.goods.isselect=='true':
+                sum += int(int(cart.goods.price)*int(cart.cartnum))
+        # print(sum)
+    return JsonResponse({'msg': '{}-删除成功'.format(goods.name), 'status': 1,'isselect':goods.isselect,'sum':sum})
+
+
+def changecartstatus(request):
+    cartid = request.GET.get('cartid')
+
+    cart = Cart.objects.get(pk=cartid)
+    cart.isselect = not cart.isselect
+    cart.save()
+
+    data = {
+        'msg': '状态修改成功',
+        'status': 1,
+        'isselect': cart.isselect
+    }
+
+    return JsonResponse(data)
+
+def changecartall(request):
+    token = request.session.get('token')
+    user = User.objects.get(token=token)
+
+    # True/False
+    isall = request.GET.get('isall')
+    if isall == 'true':
+        isall = True
+    else:
+        isall = False
+
+    carts = Cart.objects.filter(user=user).update(isselect=isall)
+
+    data = {
+        'msg': '状态修改成功',
+        'status': 1,
+    }
+
+    return JsonResponse(data)
+
+
+def generate_identifire():
+    tempstr = str(int(time.time())) + str(random.random())
+    return tempstr
+
+def generateorder(request):
+    token = request.session.get('token')
+    user = User.objects.get(token=token)
+
+    # 订单
+    order = Order()
+    order.user = user
+    order.identifier = generate_identifire()
+    order.save()
+
+    # 订单商品
+    carts = Cart.objects.filter(user=user).filter(isselect=True).exclude(cartnum=0)
+    # 只有选中的商品，才是添加到订单中，从购物车中删除
+    for cart in carts:
+        orderGoods = OrderGoods()
+        orderGoods.order = order
+        orderGoods.goods = cart.goods
+        orderGoods.number = cart.cartnum
+        orderGoods.save()
+
+        # 从购物车中删除
+        cart.delete()
+
+    data = {
+        'msg': '下单成功',
+        'status': 1,
+        'identifier': order.identifier
+    }
+
+    return JsonResponse(data)
+
+
+
+def orderdetail(request, identifier):
+    order = Order.objects.get(identifier=identifier)
+    ordergoods_lists = order.ordergoods_set.all()
+    for ordergoods in ordergoods_lists:
+        print(ordergoods.goods.name)
+    return render(request, 'orderdetail.html', context={'order': order})
+
+@csrf_exempt
+def appnotify(request):
+    # 获取订单号，并且修改订单状态
+    if request.method == 'POST':
+        from urllib.parse import parse_qs
+        body_str = request.body.decode('utf-8')
+        post_data = parse_qs(body_str)
+        post_dir = {}
+
+        print(body_str)
+        print(post_data)
+        print(post_data.items())
+        for key, value in post_data.items():
+            post_dir[key] = value[0]
+
+        out_trade_no = post_dir['out_trade_no']
+        print(out_trade_no)
+
+        # 更新状态
+        Order.objects.filter(identifier=out_trade_no).update(status=1)
+
+        return JsonResponse({'msg': 'success'})
+
+def returnview(request):
+    return redirect('mml:login')
+
+
+def pay(request):
+    identifier = request.GET.get('identifier')
+    order = Order.objects.get(identifier=identifier)
+
+    sum = 0
+    for orderGoods in order.ordergoods_set.all():
+        sum += int(orderGoods.goods.price) * int(orderGoods.number)
+
+    # 支付地址
+    url = alipay.direct_pay(
+        subject='iPhone - 2019款',  # 支付宝页面显示的标题
+        out_trade_no=identifier,  # 米米乐订单编号
+        total_amount=str(sum),  # 订单金额
+        return_url='http://47.107.91.215/returnview/'
+    )
+
+    # 拼接上支付网关
+    alipayurl = 'https://openapi.alipaydev.com/gateway.do?{data}'.format(data=url)
+
+    return JsonResponse({'alipayurl': alipayurl, 'status': 1})

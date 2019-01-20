@@ -44,25 +44,19 @@ $(function () {
         var s = true;
         $('.tip').each(function () {
             var val1 = $(this).html();
-            console.log(val1);
-            if( val1=='ok'){
-               console.log("ok")
-            }else {
-                $('.tips3').html('请重新输入');
-                s = false;
-            }
 
+            if( val1!='ok'){
+
+                console.log('no');
+               s = false
+            }
         })
         if (s){
-            $('.u-btn-reg').submit()
-        }else {
-            $('.tips3').html('请重新输入2')
+            console.log('ok');
+            $('.register').submit()
         }
 
     })
-
-
-
 
 })
 

@@ -1,5 +1,29 @@
 
 $(function () {
+
+	console.log('index')
+
+
+	$('#goods1  #details').click(function () {
+		$.cookie('index',$(this).index(),{path:'/'})
+		data={
+
+		}
+		$.get('/detailsview/',data,function (response) {
+			console.log(response)
+        })
+
+    })
+
+
+
+
+
+
+
+
+
+
 	//大轮播图效果
 	showBgImgs();
 	function showBgImgs() {

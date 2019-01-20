@@ -926,13 +926,12 @@
 
         <!-- 中 -->
         <div class="lunbo-img">
-
             <div class="swiper-container">
                 <div class="swiper-wrapper">
 
                     {% for carouselmap in carouselmaps %}
                         <div class="swiper-slide">
-                            <img src="{{ carouselmap.imgs }}" alt="">
+                            <img src="{% static  carouselmap.imgs  %}" alt="">
                         </div>
                     {% endfor %}
 
@@ -1109,8 +1108,8 @@
 
                     {% for goods in goods_lists %}
                         <li>
-                            <a href="{% url 'mml:details' goods.id %}">
-                                <img src="{{ goods.imgs }}">
+                            <a href="{% url 'mml:details' goods.id %}" id="details">
+                                <img src="{% static goods.imgs %}">
                                 <p class="name">{{ goods.name }}</p>
                                 <p class="price">￥{{ goods.price }}</p>
                             </a>

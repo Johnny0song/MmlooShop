@@ -42,7 +42,7 @@
                 </li>
                 <li>
                     <span class="price unit">￥168.00</span>
-                    <span class="price" style="color: #f">￥68.00</span>
+                    <span class="price" style="color: darkred">￥68.00</span>
                 </li>
                 <li>
                     <input class="reduce" type="button" value="-">
@@ -136,13 +136,33 @@
                 <p><span>店铺：</span>运动服饰专区</p>
                 <img src="{% static 'imgs/aliw.png' %}" alt="">
             </div>
+            <div>
+                <ul >
+                    {% for cart in carts %}
+                    <li class="cartdetails">
+                         <input type="checkbox" checked='checked'  class="goodsSelect" goodsid="{{ cart.goods.id }}" cartid="{{ cart.id }}" >
+                        <img src="{% static cart.goods.imgs %}  " alt="" class="cartimg">
+                        <span>商品{{ cart.goods.name }}</span>
+                        <span class="goodsprice" goodsprice="{{ cart.goods.price }}">价格{{ cart.goods.price }}</span>
+                        <span>
+                             <input class="mtp" type="button" value="-" goodsid="{{ cart.goods.id }}">
+                            <span class="num" num="{{ cart.cartnum }}">{{ cart.cartnum }}</span>
+                            <input class="add" type="button" value="+" goodsid="{{ cart.goods.id }}">
+                            <input class="del" type="button" value="删除" goodsid="{{ cart.goods.id }}">
+
+                        </span>
+                    </li>
+                    {% endfor %}
+                </ul>
+            </div>
             <!--添加商品-->
         </div>
         <!-- 结算 -->
         <div class="m-gds-f">
             <div class="gds-pay-lft">
                 <ul>
-                    <li><label class="allSelect"></label><span>全选</span></li>
+{#                    <li><label class="allSelect"></label><span>全选</span></li>#}
+                    <li><input type="checkbox" checked="checked" class="allSelect" isall="true"><span>全选</span></li>
                     <li><span id="delSelect">删除</span></li>
                     <li><span>清除失效宝贝</span></li>
                     <li><span>移入收藏夹</span></li>
@@ -151,9 +171,14 @@
             </div>
             <div class="gds-pay-rgt">
                 <ul>
-                    <li><p>已选商品<span id="choNum" style="color:#ff4400; font-weight:bold;"> 0 </span>件</p><i></i></li>
-                    <li><p>合计 (不含运费) ：</p><span class="cost" style="color:#ff4400; font-weight:bold;">0.00</span></li>
-                    <li><input class="account-bg" type="button" value="结算"></li>
+                    <li><p>已选商品<span id="choNum" style="color:#ff4400; font-weight:bold;">
+                        {{carts.count }}</span>件</p><i></i></li>
+                    <li><p>合计 (不含运费) ：</p>
+                        <span class="cost" style="color:#ff4400; font-weight:bold;">
+                            {{sum}}
+                        </span>
+                    </li>
+                   <input  type="button" value="下单" class="generateorder">
                 </ul>
             </div>
         </div>
