@@ -1,7 +1,6 @@
 $(function() {
 
 	console.log('cart')
-
 	total()
     // 选择
     $('.cartdetails .goodsSelect').click(function () {
@@ -96,6 +95,7 @@ $(function() {
             console.log(response)
 
             $(that).next().html(response.cartnum)
+            $(that).next().attr('num',response.cartnum)
             // if (response.cartnum > 0) {
             //     $('.num').html(response.cartnum)
             // }
@@ -121,7 +121,14 @@ $(function() {
         $.get('/addgoods/', data, function (response) {
             console.log(response)
 
-            $(that).prev().html(response.cartnum)
+            if(response.cartnum){
+                $(that).prev().html(response.cartnum)
+                $(that).prev().attr('num',response.cartnum)
+            }
+            // $(that).prev().html(response.cartnum)
+            // $(that).prev().attr('num',response.cartnum)
+
+            console.log($(that).prev().attr('num'))
             // if (response.cartnum > 0) {
             //     $('.num').html(response.cartnum)
             // }
@@ -135,7 +142,22 @@ $(function() {
 
 	$('.cartdetails .del').click(function () {
 		console.log('删除')
-		$(this).parent().parent().hide()
+        var goodsid = $(this).attr('goodsid')
+        console.log(goodsid)
+        $(this).parent().parent().find('.num').attr('num',0)
+        console.log($(this).parent().parent().find('.num').attr('num'))
+
+        var $that = $(this)
+
+        data={
+		    'goodsid':goodsid
+        }
+        $.get('/cartdel/',data,function (response) {
+            console.log(response)
+            total()
+            $that.parent().parent().hide()
+        })
+
     })
 
 
@@ -211,16 +233,28 @@ $(function() {
 	// 计算总数
     function total(){
         var sum = 0
+        console.log('total')
+        $('.cartdetails ').each(function () {
 
-        $('.cartdetails').each(function () {
             var $goodsSelect = $(this).find('.goodsSelect')
+
+            // console.log($(this).find('.goodsSelect'))
             // 选中
-            if ($goodsSelect.attr('checked')){
+            // console.log($goodsSelect.prop('checked'))
+            // var num = $(this).find('.num').attr('num')
+            // var price = $('.goodsprice').attr('goodsprice')
+            // console.log(num)
+            // console.log(price)
+            if ($goodsSelect.prop('checked')){
 
-                var num = $('.num').attr('num')
-                var price = $('.goodsprice').attr('goodsprice')
 
-                sum += num * price
+                var num = $(this).find('.num').attr('num')
+                var price = $(this).find('.goodsprice').attr('goodsprice')
+
+                sum += parseInt(num) * parseInt(price)
+                // console.log(num)
+                // console.log(price)
+                // console.log(sum)
             }
         })
 

@@ -139,19 +139,37 @@
             <div>
                 <ul >
                     {% for cart in carts %}
-                    <li class="cartdetails">
-                         <input type="checkbox" checked='checked'  class="goodsSelect" goodsid="{{ cart.goods.id }}" cartid="{{ cart.id }}" >
-                        <img src="{% static cart.goods.imgs %}  " alt="" class="cartimg">
-                        <span>商品{{ cart.goods.name }}</span>
-                        <span class="goodsprice" goodsprice="{{ cart.goods.price }}">价格{{ cart.goods.price }}</span>
-                        <span>
+                        {% if cart.cartnum > '0'%}
+                            <li class="cartdetails">
+                                <input type="checkbox" checked='checked' class="goodsSelect"
+                                       goodsid="{{ cart.goods.id }}" cartid="{{ cart.id }}">
+                                <img src="{% static cart.goods.imgs %}  " alt="" class="cartimg">
+                                <span>商品{{ cart.goods.name }}</span>
+                                <span class="goodsprice"
+                                      goodsprice="{{ cart.goods.price }}">价格{{ cart.goods.price }}</span>
+                                <span>
                              <input class="mtp" type="button" value="-" goodsid="{{ cart.goods.id }}">
                             <span class="num" num="{{ cart.cartnum }}">{{ cart.cartnum }}</span>
                             <input class="add" type="button" value="+" goodsid="{{ cart.goods.id }}">
                             <input class="del" type="button" value="删除" goodsid="{{ cart.goods.id }}">
 
                         </span>
-                    </li>
+                            </li>
+
+                        {% endif %}
+{#                    <li class="cartdetails">#}
+{#                         <input type="checkbox" checked='checked'  class="goodsSelect" goodsid="{{ cart.goods.id }}" cartid="{{ cart.id }}" >#}
+{#                        <img src="{% static cart.goods.imgs %}  " alt="" class="cartimg">#}
+{#                        <span>商品{{ cart.goods.name }}</span>#}
+{#                        <span class="goodsprice" goodsprice="{{ cart.goods.price }}">价格{{ cart.goods.price }}</span>#}
+{#                        <span>#}
+{#                             <input class="mtp" type="button" value="-" goodsid="{{ cart.goods.id }}">#}
+{#                            <span class="num" num="{{ cart.cartnum }}">{{ cart.cartnum }}</span>#}
+{#                            <input class="add" type="button" value="+" goodsid="{{ cart.goods.id }}">#}
+{#                            <input class="del" type="button" value="删除" goodsid="{{ cart.goods.id }}">#}
+{##}
+{#                        </span>#}
+{#                    </li>#}
                     {% endfor %}
                 </ul>
             </div>

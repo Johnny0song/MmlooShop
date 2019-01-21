@@ -76,7 +76,7 @@
             <ul class="t-u-rgt">
                 <li><a href="index.html">淘宝网首页</a></li>
                 <li><a href="#">我的淘宝</a><i class="arr"></i></li>
-                <li><em class="cart"></em><a href="#">购物车</a><i class="arr"></i></li>
+                <li><em class="cart"></em><a href="{% url 'mml:cart' %}">购物车</a><i class="arr"></i></li>
                 <li><em class="collect"></em><a href="#">收藏夹</a><i class="arr"></i></li>
                 <li><a href="#">商品分类</a><em class="sort"></em></li>
                 <li><a href="#">卖家中心</a><i class="arr"></i></li>
@@ -137,31 +137,31 @@
                 <img src="{% static 'imgs/aliw.png' %}" alt="">
             </div>
             <div>
-                <ul >
-                    <p>订单编号:</p><span>{{ order.identifier }}</span>
-                    <p>
-                        状态:
-                        <span style="background: red; color: white">
+                <ul>
+
+
+                    {% for order in orders %}
+                        <li>
+                            <p>订单编号:</p><span>{{ order.identifier }}</span>
+                            <p>
+                                状态:
+                                <span style="background: red; color: white">
                 {% if order.status == 0 %}
                     未付款
                 {% elif order.status == 1 %}
                     已付款
                 {% endif %}
                      </span>
-                    </p>
-                    {% for ordergoods in order.ordergoods_set.all %}
-                    <li class="cartdetails">
-                         <input type="checkbox" checked='checked'  >
-                        <img src="{% static ordergoods.goods.imgs %}" alt="" class="cartimg">
-                        <span>商品{{ ordergoods.goods.name }}</span>
-                        <span class="goodsprice" >价格：{{ ordergoods.goods.price }}</span>
-                        <span class="goodsnumber" >数量：{{ ordergoods.number }}</span>
+                            </p>
 
-                    </li>
+                        </li>
+                        <br>
                     {% endfor %}
+
+
                 </ul>
 
-                </div>
+            </div>
             <!--添加商品-->
         </div>
         <!-- 结算 -->
@@ -277,23 +277,3 @@
 
 
 
-<div>
-    <ul>
-        {% for order in orders %}
-            <li>
-                <p>订单编号:</p><span>{{ order.identifier }}</span>
-                <p>
-                    状态:
-                    <span style="background: red; color: white">
-                {% if order.status == 0 %}
-                    未付款
-                {% elif order.status == 1 %}
-                    已付款
-                {% endif %}
-                     </span>
-                </p>
-
-            </li>
-        {% endfor %}
-    </ul>
-</div>

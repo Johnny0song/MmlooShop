@@ -139,7 +139,8 @@ def cart(request):
         carts = Cart.objects.filter(user=user)
         sum =0
         for cart in carts:
-            if cart.goods.isselect == 'true':
+            # if cart.goods.isselect == 'true':
+            if cart.isselect:
                 sum += int(int(cart.goods.price)*int(cart.cartnum))
                 return render(request, 'cart.html',context={'carts':carts,'sum':sum})
     else:
@@ -232,9 +233,10 @@ def mtpgoods(request):
         carts = Cart.objects.filter(user=user).filter(goods=goods)
         if carts.exists():  # 存在就改变数量
             cart = carts.first()
-            cart.cartnum = str(int(cart.cartnum) - 1)
-            cart.save()
-            return JsonResponse({'msg': '{}-删除成功'.format(goods.name), 'status': 1, 'cartnum': cart.cartnum})
+            if int(cart.cartnum)>1:
+                cart.cartnum = str(int(cart.cartnum) - 1)
+                cart.save()
+                return JsonResponse({'msg': '{}-删除成功'.format(goods.name), 'status': 1, 'cartnum': cart.cartnum})
 
     else:
         return JsonResponse({'msg': '请登录', 'status': 0})
@@ -267,12 +269,28 @@ def cartmtp(request):
     carts = Cart.objects.filter(user=user).filter(goods=goods)
     if carts.exists():  # 存在就改变数量
         cart = carts.first()
-        cart.cartnum = str(int(cart.cartnum) - 1)
-        cart.save()
-        return JsonResponse({'msg': '{}-删除成功'.format(goods.name), 'status': 1, 'cartnum': cart.cartnum})
+        if int(cart.cartnum) > 1:
+            cart.cartnum = str(int(cart.cartnum) - 1)
+            cart.save()
+            return JsonResponse({'msg': '{}-删除成功'.format(goods.name), 'status': 1, 'cartnum': cart.cartnum})
 
 
     # return JsonResponse({'msg': goodsid, 'status': 0})
+
+
+
+def cartdel(request):
+    token = request.session.get('token')
+    user = User.objects.get(token=token)
+    goodsid = request.GET.get('goodsid')
+    goods = Goods.objects.get(pk=goodsid)
+    carts = Cart.objects.filter(user=user).filter(goods=goods)
+    if carts.exists():  # 存在就改变数量
+        cart = carts.first()
+        cart.cartnum = 0
+        cart.save()
+        return JsonResponse({'msg': '{}-数量为0'.format(goods.name), 'status': 1, 'cartnum': cart.cartnum})
+
 
 
 def amount(request):
@@ -382,6 +400,18 @@ def orderdetail(request, identifier):
         print(ordergoods.goods.name)
     return render(request, 'orderdetail.html', context={'order': order})
 
+
+
+def orderlist(request):
+    token = request.session.get('token')
+    user = User.objects.get(token=token)
+    orders = Order.objects.filter(user=user)
+
+    for order in orders:
+        print(order.identifier)
+    return render(request,'orderlist.html',context={'orders':orders})
+
+
 @csrf_exempt
 def appnotify(request):
     # 获取订单号，并且修改订单状态
@@ -406,7 +436,7 @@ def appnotify(request):
         return JsonResponse({'msg': 'success'})
 
 def returnview(request):
-    return redirect('mml:login')
+    return redirect('mml:orderlist')
 
 
 def pay(request):
@@ -429,3 +459,5 @@ def pay(request):
     alipayurl = 'https://openapi.alipaydev.com/gateway.do?{data}'.format(data=url)
 
     return JsonResponse({'alipayurl': alipayurl, 'status': 1})
+
+

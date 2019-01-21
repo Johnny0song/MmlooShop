@@ -48,7 +48,7 @@
                 <div class="m-t-rgt">
                     <ul>
                         <li>
-                            <i class="iconfont icn-car"></i><a href="#">购物车<span>0</span>件</a><i class="iconfont"></i>
+                            <i class="iconfont icn-car"></i><a href="{% url 'mml:cart' %}">购物车<span>0</span>件</a><i class="iconfont"></i>
                             <div class="shopcar">
                                 <h1>最新加入的商品</h1>
                                 <div class="myitems">
@@ -71,7 +71,7 @@
                             </div>
                         </li>
                         <li>
-                            <a href="#">我的订单</a><i class="iconfont"></i>
+                            <a href="{% url 'mml:orderlist' %}">我的订单</a><i class="iconfont"></i>
                             <div class="myorder">
                                 <dl>
                                     <dd><a href="javascript:;">待付款订单</a></dd>
@@ -261,7 +261,7 @@
                 <div>
                     <div class="f-add-1">
                         <div>
-                            <label>购买数量：</label><span class="num">1</span>
+                            <label>购买数量：</label><input class="num"  value="1"></input>
                             <input class="add" type="button" value="+" goodsid="{{ goods.id }}">
                             <input class="mtp" type="button" value="-" goodsid="{{ goods.id }}"><br>
                         </div>
@@ -269,7 +269,7 @@
                             <a href="{% url 'mml:cart' %}"  >
                                 <input class="buygds" type="button" value="立即购买">
                             </a>
-                            <a href="{% url 'mml:cart' %}"  >
+                            <a href="#"  >
                                 <input class="addgds" type="button" value="添加购物车">
                             </a> <br>
 {#                            <input class="buygds" type="button" value="立即购买">#}
@@ -340,7 +340,8 @@
                 {{ cart.cartnum }}
                 $.get('/addgoods/',data,function (response) {
                     console.log(response)
-                    $('.num').html(response.cartnum)
+                    {#$('.num').html(response.cartnum)#}
+                    $('.num').attr('value',response.cartnum)
 
 
                     if (response.status ==0){
@@ -364,9 +365,9 @@
 
                     $('.num').html(response.cartnum)
                     if (response.cartnum >0){
-                        $('.num').html(response.cartnum)
+                        {#$('.num').html(response.cartnum)#}
+                        $('.num').attr('value',response.cartnum)
                     }
-
 
                     if (response.status ==0){
                         window.open('/login/',target='_self')
@@ -377,7 +378,10 @@
             })
 
 
+            $('.addgds').click(function () {
+                alert('添加购物车成功')
 
+            })
 
         })
 

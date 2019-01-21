@@ -28,6 +28,7 @@ urlpatterns = [
 
     url(r'^cartadd/$',views.cartadd,name='cartadd'),
     url(r'^cartmtp/$',views.cartmtp,name='cartmtp'),
+    url(r'^cartdel/$',views.cartdel,name='cartdel'),
 
     url(r'^amount/$',views.amount,name='amount'),
 
@@ -37,6 +38,7 @@ urlpatterns = [
 
     url(r'^generateorder/$', views.generateorder, name='generateorder'),    # 下单
     url(r'^orderdetail/(.+)/$', views.orderdetail, name='orderdetail'),  # 订单详情
+    url(r'^orderlist/$', views.orderlist, name='orderlist'),  # 订单
 
 
     url(r'^appnotify/$', views.appnotify, name='appnotify'),    # 支付完成后(服务器)
